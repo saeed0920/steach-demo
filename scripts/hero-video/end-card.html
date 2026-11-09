@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+  PlayTalk end card for the hero loop. Rendered by build.sh into transparent layers:
+    end-card.html?wide#1 / #2  → 1920×1080 (brand on the left, beside the desktop hero card)
+    end-card.html?tall#1 / #2  → 608×1080  (brand centred near the top, above the phone card)
+  Layer 1 = logo badge, layer 2 = PLAYTALK title. Layout is identical in both layers.
+-->
+<style>
+@font-face{font-family:P;src:url(../../public/assets/website/fonts/PressStart2P-Regular.woff2)}
+html,body{margin:0;background:transparent;overflow:hidden}
+.row{position:absolute;display:flex;align-items:center;direction:ltr}
+.badge{background:#fff;border-radius:22px;box-shadow:0 10px 0 rgba(14,23,51,.35);display:flex}
+.badge img{display:block}
+.brand{font-family:P;color:#FFE45C;text-shadow:var(--sh) var(--sh) 0 #8a5a00}
+.l{visibility:hidden}
+/* wide */
+.wide{width:1920px;height:1080px}
+.wide .row{left:660px;top:190px;transform:translateX(-50%);gap:24px}
+.wide .badge{padding:16px 24px}.wide .badge img{height:84px}
+.wide .brand{font-size:76px;letter-spacing:4px;--sh:7px}
+/* tall */
+.tall{width:608px;height:1080px}
+.tall .row{left:50%;top:120px;transform:translateX(-50%);gap:22px;flex-direction:column}
+.tall .badge{padding:10px 14px;border-radius:16px;box-shadow:0 7px 0 rgba(14,23,51,.35)}.tall .badge img{height:84px}
+.tall .brand{font-size:48px;letter-spacing:3px;--sh:6px}
+</style>
+</head>
+<body>
+<div class="row">
+  <span class="l l1 badge"><img src="../../public/assets/website/images/logo-nav.webp" alt=""></span>
+  <span class="l l2 brand">PLAYTALK</span>
+</div>
+<script>
+document.body.className = location.search.includes("tall") ? "tall" : "wide";
+document.querySelector(".l" + (location.hash.slice(1) || "1")).style.visibility = "visible";
+</script>
+</body>
+</html>

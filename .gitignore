@@ -42,7 +42,6 @@ next-env.d.ts
 
 # heavy/local media kept out of git (copy separately or use LFS later)
 /public/assets/youtube/*.mp4
-!/public/assets/youtube/ug4547u5ink.mp4
 /reference.zip
 /reference/
 /demo/node_modules/

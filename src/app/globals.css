@@ -199,3 +199,475 @@ body {
 .glass.menu-solid {
   background: rgb(255 255 255 / 0.97);
 }
+
+/* Short/narrow phones: don't stretch the video to the full height of a tall content card. */
+@media (max-width: 767px) {
+  #top > .hero-media {
+    bottom: auto;
+    height: 100svh;
+  }
+}
+
+/* ---------- /second: smooth UX layer ---------- */
+html {
+  scroll-padding-top: 96px; /* anchor jumps clear the fixed header */
+  interpolate-size: allow-keywords; /* lets <details> animate to height:auto */
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Buttons: one system, tactile Minecraft-style press. */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.16s,
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.btn.fixed {
+  position: fixed;
+}
+.btn.rounded-full {
+  border-radius: 9999px;
+}
+.btn:active {
+  transition-duration: 0.05s;
+}
+.btn-primary {
+  background: #287a32;
+  color: #fff;
+  box-shadow:
+    0 5px 0 #1b5523,
+    0 10px 22px rgb(40 122 50 / 0.28);
+}
+.btn-primary:hover {
+  background: #2e8a39;
+  transform: translateY(-2px);
+  box-shadow:
+    0 7px 0 #1b5523,
+    0 14px 26px rgb(40 122 50 / 0.34);
+}
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 1px 0 #1b5523,
+    0 4px 10px rgb(40 122 50 / 0.25);
+}
+/* shine sweep */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgb(255 255 255 / 0.35) 50%,
+    transparent 65%
+  );
+  transform: translateX(120%);
+}
+.btn-primary:hover::after {
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.btn-outline {
+  background: #fff;
+  color: #1b3a7a;
+  border: 1.5px solid #1b3a7a;
+  font-weight: 700;
+}
+.btn-outline:hover {
+  background: #eef3fd;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgb(27 58 122 / 0.14);
+}
+.btn-outline:active,
+.btn-soft:active,
+.btn-ghost:active,
+.btn-dark:active {
+  transform: scale(0.97);
+}
+.btn-dark {
+  background: #0e1733;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgb(14 23 51 / 0.2);
+}
+.btn-dark:hover {
+  background: #1b2a55;
+}
+.btn-ghost {
+  color: #1b3a7a;
+  font-weight: 700;
+}
+.btn-ghost:hover {
+  background: rgb(14 23 51 / 0.05);
+}
+.btn-soft {
+  background: #f7f8fc;
+  border: 1px solid #dce3ef;
+  font-weight: 600;
+}
+.btn-soft:hover {
+  background: #eef3fd;
+  border-color: #c9d3e6;
+  transform: translateY(-1px);
+}
+.btn-icon {
+  transition: transform 0.2s;
+}
+.btn:hover .btn-icon {
+  transform: translateX(-4px); /* RTL: nudge forward */
+}
+.chip,
+.lift {
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.chip:hover {
+  border-color: #1b3a7a;
+  background: #eef3fd;
+}
+.lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgb(14 23 51 / 0.18);
+}
+.lift:active {
+  transform: scale(0.98);
+}
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .btn-soft:hover,
+  .lift:hover {
+    transform: none;
+  }
+}
+
+/* Play buttons breathe to invite a tap. */
+.play-pulse::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: play-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.play-pulse:not(.absolute) {
+  position: relative;
+}
+@keyframes play-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Image skeleton shimmer until the picture paints over it. */
+.skel {
+  background:
+    linear-gradient(100deg, #dfe6f2 30%, #eef2f9 50%, #dfe6f2 70%) 0 0 / 300%
+    100%;
+  animation: skel 1.4s linear 3;
+}
+@keyframes skel {
+  to {
+    background-position: -150% 0;
+  }
+}
+
+/* Pixel loader: three blocks hopping. */
+.pixel-loader {
+  display: inline-flex;
+  gap: 8px;
+}
+.pixel-loader i {
+  width: 14px;
+  height: 14px;
+  background: #ffd24a;
+  box-shadow: inset -3px -3px 0 rgb(0 0 0 / 0.2);
+  animation: pixel-hop 0.9s ease-in-out infinite;
+}
+.pixel-loader i:nth-child(2) {
+  background: #22b356;
+  animation-delay: 0.15s;
+}
+.pixel-loader i:nth-child(3) {
+  background: #4fd8d2;
+  animation-delay: 0.3s;
+}
+@keyframes pixel-hop {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-12px);
+  }
+}
+
+/* First-paint splash: CSS-only, never blocks longer than ~1s. */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: #f7f8fc;
+  pointer-events: none;
+  animation: loader-out 0.45s ease 0.75s forwards;
+}
+.page-loader > img {
+  animation: loader-pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+@keyframes loader-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+@keyframes loader-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Hero card: children cascade in after the splash. */
+.stagger > * {
+  animation: hero-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.stagger > :nth-child(1) {
+  animation-delay: 0.85s;
+}
+.stagger > :nth-child(2) {
+  animation-delay: 0.95s;
+}
+.stagger > :nth-child(3) {
+  animation-delay: 1.05s;
+}
+.stagger > :nth-child(4) {
+  animation-delay: 1.15s;
+}
+.stagger > :nth-child(5) {
+  animation-delay: 1.25s;
+}
+.hero-in {
+  animation-delay: 0.75s;
+}
+.hero-in-2 {
+  animation-delay: 1.3s;
+}
+.site-header {
+  animation: header-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.7s both;
+}
+@keyframes header-in {
+  from {
+    transform: translateY(-120%);
+  }
+}
+
+/* Header nav: sliding underline on the section in view (scroll-spy). */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 4px;
+  height: 3px;
+  border-radius: 3px;
+  background: #287a32;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.nav-link[aria-current]::after {
+  transform: scaleX(1);
+}
+
+/* Mobile menu links slide in one by one. */
+.menu-pop:popover-open > * {
+  animation: menu-item 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.menu-pop:popover-open > :nth-child(2) {
+  animation-delay: 0.04s;
+}
+.menu-pop:popover-open > :nth-child(3) {
+  animation-delay: 0.08s;
+}
+.menu-pop:popover-open > :nth-child(4) {
+  animation-delay: 0.12s;
+}
+.menu-pop:popover-open > :nth-child(5) {
+  animation-delay: 0.16s;
+}
+.menu-pop:popover-open > :nth-child(6) {
+  animation-delay: 0.2s;
+}
+@keyframes menu-item {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+/* Native accordions open/close smoothly (Chromium 131+, instant elsewhere). */
+details::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    content-visibility 0.35s allow-discrete;
+}
+details[open]::details-content {
+  block-size: auto;
+}
+
+/* Video dialog zoom + fade in/out. */
+dialog {
+  opacity: 0;
+  transform: scale(0.94) translateY(12px);
+  transition:
+    opacity 0.25s,
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+dialog[open] {
+  opacity: 1;
+  transform: none;
+}
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+}
+dialog::backdrop {
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    overlay 0.3s allow-discrete,
+    display 0.3s allow-discrete;
+}
+dialog[open]::backdrop {
+  opacity: 1;
+}
+@starting-style {
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/* Scroll-linked chrome: progress bar, solidifying header, back-to-top. */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 40;
+  height: 3px;
+  background: linear-gradient(to left, #287a32, #ffd24a);
+  transform-origin: right;
+  transform: scaleX(0);
+}
+.to-top {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+}
+@keyframes grow-x {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes header-solid {
+  to {
+    background: rgb(255 255 255 / 0.95);
+    box-shadow: 0 10px 30px rgb(14 23 51 / 0.18);
+  }
+}
+@keyframes show-up {
+  to {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+  .site-header > .glass {
+    animation: header-solid linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 160px;
+  }
+  .to-top {
+    animation: show-up linear both;
+    animation-timeline: scroll(root);
+    animation-range: 90vh 110vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    display: none;
+  }
+  .stagger > *,
+  .site-header,
+  .play-pulse::before,
+  .skel,
+  .pixel-loader i,
+  .menu-pop:popover-open > * {
+    animation: none;
+  }
+  .btn,
+  dialog,
+  dialog::backdrop,
+  details::details-content {
+    transition: none;
+  }
+  .btn:hover,
+  .btn:active,
+  .btn:hover .btn-icon,
+  .lift:hover,
+  .lift:active {
+    transform: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn.mobile-menu {
+    display: none;
+  }
+}

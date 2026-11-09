@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { estedad } from "../fonts";
-import { TownTabs, VideoDialog } from "./islands";
+import {
+  ActiveNav,
+  HeroVideo,
+  MobileMenu,
+  TownTabs,
+  VideoDialog,
+} from "./islands";
 
 export const metadata: Metadata = {
   title: "پلی‌تاک — شیشه‌ای، منظره",
@@ -158,6 +164,7 @@ const Play = ({ size = 16 }: { size?: number }) => (
 );
 const Chevron = () => (
   <svg
+    className="btn-icon"
     width="20"
     height="20"
     viewBox="0 0 24 24"
@@ -171,10 +178,9 @@ const Chevron = () => (
     <path d="M15 6l-6 6 6 6" />
   </svg>
 );
-const btnGreen =
-  "flex min-h-14 items-center justify-center gap-2 rounded-[14px] bg-[#287A32] text-lg font-extrabold text-white shadow-[0_4px_0_#1B5523] transition hover:bg-[#2f8a3a] active:translate-y-0.5 active:shadow-[0_2px_0_#1B5523]";
-const btnOutline =
-  "flex min-h-[50px] items-center justify-center rounded-[14px] border-[1.5px] border-[#1B3A7A] bg-white font-bold text-[#1B3A7A] transition hover:bg-[#F1F4FA]";
+// Button looks live in globals.css (.btn-*): 3D press, hover lift, shine sweep, icon nudge.
+const btnGreen = "btn btn-primary min-h-14 text-lg";
+const btnOutline = "btn btn-outline min-h-[50px]";
 const card = "rounded-2xl border border-[#DCE3EF] bg-white";
 const h2 = "text-[25px] leading-[1.6] font-black md:text-[32px]";
 const wrap = "mx-auto w-full max-w-6xl px-4 md:px-8";
@@ -219,7 +225,23 @@ export default function SecondDesign() {
       </a>
 
       {/* Glass header, fixed over every section */}
-      <header className="fixed inset-x-3 top-3 z-30 md:inset-x-6">
+      <div aria-hidden="true" className="scroll-progress" />
+      <div aria-hidden="true" className="page-loader">
+        <Image
+          src={`${IMG}/logo-nav.webp`}
+          alt=""
+          width={96}
+          height={68}
+          priority
+          className="h-[68px] w-auto"
+        />
+        <span className="pixel-loader">
+          <i />
+          <i />
+          <i />
+        </span>
+      </div>
+      <header className="site-header fixed inset-x-3 top-3 z-30 md:inset-x-6">
         <div
           className={`glass mx-auto flex max-w-6xl items-center justify-between rounded-2xl py-1.5 ps-2 pe-1.5 shadow-[0_6px_20px_rgba(14,23,51,.14)]`}
         >
@@ -233,31 +255,18 @@ export default function SecondDesign() {
               className="h-[38px] w-auto"
             />
           </a>
-          <nav
-            aria-label="در این صفحه"
-            className="hidden items-center gap-1 lg:flex"
-          >
-            {NAV.map(([href, label]) => (
-              <a
-                key={href}
-                href={href}
-                className="rounded-xl px-3 py-2 text-[15px] font-bold transition hover:bg-[#0E1733]/5"
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
+          <ActiveNav items={NAV} />
           <div className="flex items-center gap-1">
             <a
               href="#login"
-              className="flex min-h-11 items-center px-3 text-[15px] font-bold text-[#1B3A7A]"
+              className="btn btn-ghost min-h-11 px-3 text-[15px]"
             >
               ورود به شهر
             </a>
             <button
               type="button"
               popoverTarget="main-menu"
-              className="flex h-11 min-w-[76px] items-center justify-center gap-1.5 rounded-xl bg-[#0E1733] px-3 text-[15px] font-bold text-white lg:hidden"
+              className="mobile-menu btn btn-dark h-11 min-w-[76px] gap-1.5 rounded-xl px-3 text-[15px] lg:hidden"
             >
               منو
               <svg
@@ -276,12 +285,7 @@ export default function SecondDesign() {
           </div>
         </div>
         {/* Native popover: Esc / outside click close it for free. */}
-        <nav
-          id="main-menu"
-          popover="auto"
-          aria-label="منوی اصلی"
-          className="glass menu-pop menu-solid inset-x-3 top-[76px] mx-auto m-0 w-auto rounded-2xl px-4 pt-1.5 pb-3.5 text-[#0E1733]"
-        >
+        <MobileMenu>
           {[
             ["#method", "روش آموزش"],
             ["#levels", "سطح‌ها"],
@@ -303,32 +307,47 @@ export default function SecondDesign() {
           >
             تلفن پشتیبانی <span dir="ltr">۰۲۱-۵۲۷۵۶۰۰۰</span>
           </a>
-        </nav>
+        </MobileMenu>
       </header>
 
       {/* HERO: live Minecraft landscape behind glass */}
       <section
         id="top"
-        className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden px-3 pt-24 pb-5 md:justify-center md:px-8"
+        className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden px-3 pt-[260px] pb-5 md:justify-center md:px-8 md:pt-24"
       >
-        <video
-          aria-hidden="true"
-          tabIndex={-1}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/assets/youtube/ug4547u5ink-clean.webp"
-          className="hero-media absolute inset-0 -z-20 size-full object-cover"
-        >
-          {/* Reduced-motion users keep the still poster; the video is never fetched. */}
-          <source
-            src="/assets/youtube/ug4547u5ink.mp4#t=8"
-            type="video/mp4"
-            media="(prefers-reduced-motion: no-preference)"
-          />
-        </video>
+        <HeroVideo
+          src="/assets/website/videos/playtalk-hero.mp4"
+          portraitSrc="/assets/website/videos/playtalk-hero-portrait.mp4"
+          still={
+            <>
+              {/* Art-directed first frame (LCP) — swapped for the branded end card under reduced motion. */}
+              <picture className="motion-reduce:hidden">
+                <source
+                  media="(max-aspect-ratio: 4/5)"
+                  srcSet={`${IMG}/playtalk-hero-first-portrait.webp`}
+                />
+                <img
+                  src={`${IMG}/playtalk-hero-first.webp`}
+                  alt=""
+                  fetchPriority="high"
+                  className="absolute inset-0 size-full object-cover"
+                />
+              </picture>
+              <picture className="hidden motion-reduce:block">
+                <source
+                  media="(max-aspect-ratio: 4/5)"
+                  srcSet={`${IMG}/playtalk-hero-poster-portrait.webp`}
+                />
+                <img
+                  src={`${IMG}/playtalk-hero-poster.webp`}
+                  alt=""
+                  loading="lazy"
+                  className="absolute inset-0 size-full object-cover"
+                />
+              </picture>
+            </>
+          }
+        />
         <div
           aria-hidden="true"
           className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0E1733]/0 via-[#0E1733]/10 to-[#0E1733]/55 md:bg-gradient-to-l md:from-[#0E1733]/45 md:via-[#0E1733]/10 md:to-transparent"
@@ -336,7 +355,7 @@ export default function SecondDesign() {
 
         <div className="mx-auto w-full max-w-6xl">
           <div className="flex flex-col gap-3.5 md:max-w-[480px]">
-            <div className="glass hero-in flex flex-col gap-3.5 rounded-[22px] px-[18px] py-[22px] shadow-[0_14px_36px_rgba(14,23,51,.2)] md:p-7">
+            <div className="glass stagger flex flex-col gap-3.5 rounded-[22px] px-[18px] py-[22px] shadow-[0_14px_36px_rgba(14,23,51,.2)] md:p-7">
               <h1 className="text-[29px] leading-[1.6] font-black md:text-[36px]">
                 انگلیسی یاد بگیر؛ توی ماینکرفت زندگی‌اش کن.
               </h1>
@@ -372,15 +391,15 @@ export default function SecondDesign() {
             <div className="glass-dark hero-in hero-in-2 overflow-hidden rounded-[18px] text-white">
               <VideoDialog
                 {...INTRO}
-                className="flex w-full items-center gap-3 p-2 text-right transition hover:bg-white/5"
+                className="group flex w-full items-center gap-3 p-2 text-right transition-colors hover:bg-white/5"
               >
-                <span className="relative h-[54px] w-24 shrink-0 overflow-hidden rounded-[10px]">
+                <span className="skel relative h-[54px] w-24 shrink-0 overflow-hidden rounded-[10px]">
                   <Image
                     src={`${IMG}/63522398-9824-l__9675.jpg`}
                     alt=""
                     fill
                     sizes="96px"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </span>
                 <span className="flex flex-1 flex-col leading-[1.6]">
@@ -389,7 +408,7 @@ export default function SecondDesign() {
                 </span>
                 <span
                   aria-hidden="true"
-                  className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-[#0E1733]"
+                  className="play-pulse flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-[#0E1733] transition-transform group-hover:scale-110"
                 >
                   <Play />
                 </span>
@@ -411,7 +430,7 @@ export default function SecondDesign() {
               <a
                 key={href}
                 href={href}
-                className="flex min-h-11 items-center rounded-full border border-[#C9D3E6] bg-white px-3.5 text-[15px] font-semibold"
+                className="chip flex min-h-11 items-center rounded-full border border-[#C9D3E6] bg-white px-3.5 text-[15px] font-semibold"
               >
                 {label}
               </a>
@@ -586,17 +605,17 @@ export default function SecondDesign() {
             </div>
             <div className="grid gap-3 md:grid-cols-[1.4fr_1fr] md:gap-5">
               <article className="glass reveal overflow-hidden rounded-[18px]">
-                <div className="relative aspect-video">
+                <div className="skel group relative aspect-video overflow-hidden">
                   <Image
                     src={`${IMG}/63522398-9824-l__9675.jpg`}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 60vw, 100vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <VideoDialog
                     {...INTRO}
-                    className="absolute inset-0 m-auto flex size-[60px] items-center justify-center rounded-full border-2 border-white bg-[#0E1733] text-white shadow-[0_4px_14px_rgba(0,0,0,.35)] transition hover:scale-110"
+                    className="play-pulse absolute inset-0 m-auto flex size-[60px] items-center justify-center rounded-full border-2 border-white bg-[#0E1733] text-white shadow-[0_4px_14px_rgba(0,0,0,.35)] transition-transform hover:scale-110 active:scale-95"
                   >
                     <Play size={22} />
                   </VideoDialog>
@@ -618,15 +637,15 @@ export default function SecondDesign() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${v.title} — دیدن در آپارات (پنجرهٔ جدید)`}
-                      className="glass flex w-full items-center gap-3 rounded-[14px] p-2 transition hover:-translate-y-0.5"
+                      className="glass lift group flex w-full items-center gap-3 rounded-[14px] p-2"
                     >
-                      <span className="relative h-14 w-[100px] shrink-0 overflow-hidden rounded-lg">
+                      <span className="skel relative h-14 w-[100px] shrink-0 overflow-hidden rounded-lg">
                         <Image
                           src={v.img}
                           alt=""
                           fill
                           sizes="100px"
-                          className="object-cover"
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </span>
                       <span className="flex flex-1 flex-col leading-[1.6]">
@@ -897,7 +916,7 @@ export default function SecondDesign() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-12 flex-1 items-center justify-center rounded-xl border border-[#DCE3EF] bg-[#F7F8FC] text-[15px] transition hover:bg-[#EEF3FD]"
+                  className="btn btn-soft min-h-12 flex-1 rounded-xl text-[15px]"
                 >
                   {t}
                 </a>
@@ -921,6 +940,25 @@ export default function SecondDesign() {
           </span>
         </div>
       </footer>
+      <a
+        href="#top"
+        className="to-top btn btn-dark fixed bottom-4 end-4 z-20 size-12 rounded-full"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M6 15l6-6 6 6" />
+        </svg>
+        <span className="sr-only">بازگشت به بالای صفحه</span>
+      </a>
     </div>
   );
 }
