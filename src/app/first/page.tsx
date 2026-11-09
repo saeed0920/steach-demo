@@ -1,31 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { estedad } from "../fonts";
 import TownTour from "./town-tour";
-
-const estedad = localFont({
-  src: [
-    {
-      path: "../../../public/assets/website/fonts/Estedad-Regular.woff2",
-      weight: "400",
-    },
-    {
-      path: "../../../public/assets/website/fonts/Estedad-SemiBold.woff2",
-      weight: "600",
-    },
-    {
-      path: "../../../public/assets/website/fonts/Estedad-Bold.woff2",
-      weight: "700",
-    },
-    {
-      path: "../../../public/assets/website/fonts/Estedad-ExtraBold.woff2",
-      weight: "800",
-    },
-    {
-      path: "../../../public/assets/website/fonts/Estedad-Black.woff2",
-      weight: "900",
-    },
-  ],
-});
 
 export const metadata: Metadata = {
   title: "پلی‌تاک — شهر زنده",

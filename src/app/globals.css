@@ -40,3 +40,162 @@ body {
     animation: none;
   }
 }
+
+/* ---------- /second: glass over landscape ---------- */
+.glass {
+  background: rgb(255 255 255 / 0.84);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgb(255 255 255 / 0.9);
+  color: #0e1733;
+}
+.glass-dark {
+  background: rgb(14 23 51 / 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgb(255 255 255 / 0.25);
+}
+@supports not (
+    (backdrop-filter: blur(1px)) or
+    (-webkit-backdrop-filter: blur(1px))
+  ) {
+  .glass {
+    background: rgb(255 255 255 / 0.96);
+  }
+  .glass-dark {
+    background: rgb(14 23 51 / 0.95);
+  }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .glass {
+    background: #fff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .glass-dark {
+    background: #0e1733;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+.skip-link {
+  position: fixed;
+  top: -80px;
+  right: 12px;
+  z-index: 50;
+  background: #0e1733;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.skip-link:focus {
+  top: 12px;
+}
+:focus-visible {
+  outline: 3px solid #2d6cdf;
+  outline-offset: 3px;
+}
+.menu-pop {
+  position: fixed;
+  max-width: 72rem;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s,
+    display 0.2s allow-discrete,
+    overlay 0.2s allow-discrete;
+}
+@starting-style {
+  .menu-pop:popover-open {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+.menu-pop:not(:popover-open) {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+.hero-in {
+  animation: hero-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+}
+.hero-in-2 {
+  animation-delay: 0.3s;
+}
+@keyframes float-char {
+  50% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+.float-char {
+  animation: float-char 3.2s ease-in-out infinite;
+}
+
+/* Scroll-driven effects: progressive enhancement, no JS. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+  }
+}
+@keyframes hero-parallax {
+  to {
+    transform: translateY(18%) scale(1.12);
+  }
+}
+@keyframes band-parallax {
+  from {
+    transform: translateY(-8%) scale(1.15);
+  }
+  to {
+    transform: translateY(8%) scale(1.15);
+  }
+}
+@keyframes bar-grow {
+  from {
+    flex-grow: 0.0001;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+    .hero-media {
+      animation: hero-parallax linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100svh;
+    }
+    .band-media {
+      animation: band-parallax linear both;
+      animation-timeline: view();
+    }
+    .bar-grow {
+      animation: bar-grow ease-out both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 45%;
+    }
+    .bar-grow-2 {
+      animation-range: entry 40% cover 55%;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-in,
+  .float-char {
+    animation: none;
+  }
+}
+.glass.menu-solid {
+  background: rgb(255 255 255 / 0.97);
+}

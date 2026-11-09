@@ -20,3 +20,14 @@ Source idea: "۶ · شهر زنده" board in `PlayTalk Landing — Mobile.html`
 - Performance: full rate only while something moves, ~30fps when idle, ~4fps when paused or reduced-motion. The shadow map re-renders only when needed. DPR is capped at 1.25 on touch / 1.75 on desktop and steps down adaptively if busy frames run slow.
 - Card: Persian copy + tokens from the board (navy #0E1733 / #1B3A7A, green #287A32, Estedad). Bottom sheet on mobile (view offset lifts the town), right side on desktop. Arrow Left = next, Arrow Right = back. Reduced motion → instant cuts, no idle motion or dust/confetti. If WebGL fails, a gradient is shown and the card still works.
 - Files: `src/app/first/{page.tsx,town-tour.tsx,scene.ts,world.ts,textures.ts,hero.ts,controls.ts,music.ts}`; `bun test src/app/first` checks flat ground under stations and the path.
+
+## /second — Glassy landscape (full landing)
+
+Source: the "۲ · شیشه‌ای — منظره" board in `PlayTalk Landing — Mobile.html`. Frosted-glass cards float over Minecraft landscapes. Mobile-first; on desktop it switches to 2-column grids, and the hero card sits on the right (RTL start).
+
+- Hero: a looping muted trailer (`/assets/youtube/ug4547u5ink.mp4#t=8`) behind the glass card. Its `<source media="(prefers-reduced-motion: no-preference)">` means reduced-motion users get the still poster only.
+- Sections: hero → page chips (mobile only) → session timeline → video band → 14 levels → town tabs → FAQ → final CTA with the floating mascot → footer with real links (Aparat, Instagram, Bale, Rubika, WhatsApp, phone).
+- Native-first: popover menu (closes on Esc and outside click), `<dialog>` video player that loads only on demand and has an error state, `<details>` for the levels and FAQ (`name="faq"` makes it exclusive), and ARIA tabs with roving focus (ArrowLeft = next).
+- Motion is CSS-only and scroll-driven where supported: card reveal, hero/band parallax and the session bar growing in. Everything is static under reduced motion. Glass falls back to solid with no `backdrop-filter`, under reduced transparency, or with high contrast.
+- Only the intro video ships locally. The other video cards open the PlayTalk Aparat channel in a new tab.
+- Files: `src/app/second/{page.tsx,islands.tsx}`, glass CSS in `globals.css`, shared Estedad font in `src/app/fonts.ts`. `/` lists all designs.
