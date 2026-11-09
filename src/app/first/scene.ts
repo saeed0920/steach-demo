@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils.js";
+import { BASE_PATH } from "../base-path";
 import { createViewControls } from "./controls";
 import { createHero } from "./hero";
 import { blockMaterials, canvasTexture, PLANTS } from "./textures";
@@ -188,7 +189,7 @@ export function createTownScene(
   drawSigns();
   const font = new FontFace(
     "Press Start 2P",
-    "url(/assets/website/fonts/PressStart2P-Regular.woff2)",
+    `url(${BASE_PATH}/assets/website/fonts/PressStart2P-Regular.woff2)`,
   );
   font.load().then(
     (f) => {

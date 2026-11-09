@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { BASE_PATH } from "../base-path";
 import { createMusic } from "./music";
 import type { TownScene } from "./scene";
 
@@ -144,14 +146,14 @@ export default function TownTour() {
       )}
 
       <header className="absolute inset-x-3 top-3 z-10 flex items-center justify-between rounded-2xl bg-white py-1.5 ps-2 pe-1.5 shadow-[0_4px_14px_rgba(14,23,51,.16)] md:inset-x-6 md:top-5 md:max-w-sm md:ms-auto">
-        <a href="/first" aria-label="پلی‌تاک، صفحهٔ اصلی" className="flex">
+        <Link href="/first" aria-label="پلی‌تاک، صفحهٔ اصلی" className="flex">
           {/* biome-ignore lint/performance/noImgElement: tiny static logo */}
           <img
-            src="/assets/website/images/logo-nav.webp"
+            src={`${BASE_PATH}/assets/website/images/logo-nav.webp`}
             alt=""
             className="h-9 w-auto"
           />
-        </a>
+        </Link>
         <div className="flex items-center gap-1">
           <a
             href="#login"

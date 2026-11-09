@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BASE_PATH } from "../base-path";
 import { estedad } from "../fonts";
 import {
   ActiveNav,
@@ -15,9 +16,9 @@ export const metadata: Metadata = {
     "کلاس زندهٔ زبان انگلیسی برای بچه‌های ۷ تا ۱۳ سال، با تمرین در دنیای ماینکرفت.",
 };
 
-const IMG = "/assets/website/images";
+const IMG = `${BASE_PATH}/assets/website/images`;
 const INTRO = {
-  src: "/assets/website/videos/v1-landing-what-is-playtalk.mp4",
+  src: `${BASE_PATH}/assets/website/videos/v1-landing-what-is-playtalk.mp4`,
   poster: `${IMG}/v1-landing-poster.webp`,
   title: "پلی‌تاک چیه؟",
 };
@@ -316,8 +317,8 @@ export default function SecondDesign() {
         className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden px-3 pt-[260px] pb-5 md:justify-center md:px-8 md:pt-24"
       >
         <HeroVideo
-          src="/assets/website/videos/playtalk-hero.mp4"
-          portraitSrc="/assets/website/videos/playtalk-hero-portrait.mp4"
+          src={`${BASE_PATH}/assets/website/videos/playtalk-hero.mp4`}
+          portraitSrc={`${BASE_PATH}/assets/website/videos/playtalk-hero-portrait.mp4`}
           still={
             <>
               {/* Art-directed first frame (LCP) — swapped for the branded end card under reduced motion. */}
