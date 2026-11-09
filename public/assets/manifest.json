@@ -1,0 +1,223 @@
+{
+  "preparedAt": "2026-11-08T16:50:43.633543+00:00",
+  "website": {
+    "source": "https://steach.org/",
+    "capturedAt": "2026-11-03T11:48:07.386Z",
+    "assets": [
+      {
+        "path": "/assets/website/images/pixel-cursor.webp",
+        "source": "https://steach.org/cursor/pixel-cursor.png",
+        "reference": "reference/assets/5e7498a4db-pixel-cursor.png",
+        "mimeType": "image/webp",
+        "bytes": 504,
+        "sha256": "1d5adcb40e29c9ba521670624391ac204370facf2bb7150729ba35f7df9a724a"
+      },
+      {
+        "path": "/assets/website/images/logo-nav.webp",
+        "source": "https://steach.org/landing/logo-nav.webp",
+        "reference": "reference/assets/3d05c433d3-logo-nav.webp",
+        "mimeType": "image/webp",
+        "bytes": 13166,
+        "sha256": "6d32f0d96ab484b654e719c512fc4b1eff7f629656b84283f3b7325df613b3cd"
+      },
+      {
+        "path": "/assets/website/images/instagram.webp",
+        "source": "https://steach.org/landing/brands/instagram.png",
+        "reference": "reference/assets/1dad72032c-instagram.png",
+        "mimeType": "image/webp",
+        "bytes": 162558,
+        "sha256": "ddd698cf90ac1d4cb383f36d267eca6133719a40eee731ddde1fd9a7802d803b"
+      },
+      {
+        "path": "/assets/website/images/bale.ico",
+        "source": "https://steach.org/landing/brands/bale.ico",
+        "reference": "reference/assets/c329ad0601-bale.ico",
+        "mimeType": "image/x-icon",
+        "bytes": 3500,
+        "sha256": "46dd44a3defb0007f511901b391ec4df98ac6579f06852f4e88ab5a0dde30826"
+      },
+      {
+        "path": "/assets/website/images/rubika.ico",
+        "source": "https://steach.org/landing/brands/rubika.ico",
+        "reference": "reference/assets/be15e75b91-rubika.ico",
+        "mimeType": "image/x-icon",
+        "bytes": 12014,
+        "sha256": "9bf25f6fd076383cf8ea81256ad51ea2755b71e5ad1f66f6ddcb33b5a847d825"
+      },
+      {
+        "path": "/assets/website/images/v1-landing-poster.webp",
+        "source": "https://steach.org/onboarding/videos/v1-landing-poster.webp",
+        "reference": "reference/assets/e2ae269a86-v1-landing-poster.webp",
+        "mimeType": "image/webp",
+        "bytes": 24536,
+        "sha256": "4b9678dbc647515ff78b9619bc7cbaa1692460851ff05b4bf9d07e039219e221"
+      },
+      {
+        "path": "/assets/website/images/cta-character.webp",
+        "source": "https://steach.org/landing/cta-character.webp",
+        "reference": "reference/assets/a6069cae07-cta-character.webp",
+        "mimeType": "image/webp",
+        "bytes": 52120,
+        "sha256": "d36f28a59ba66158e4f2ad81a51f521647a1be6bdf89549998a7dd502bf41c5a"
+      },
+      {
+        "path": "/assets/website/images/logo-playtalk.webp",
+        "source": "https://steach.org/landing/logo-playtalk.webp",
+        "reference": "reference/assets/bc50de7086-logo-playtalk.webp",
+        "mimeType": "image/webp",
+        "bytes": 5906,
+        "sha256": "1bb8df2bc212e91fbd9e5ba0cb533c771db480ad33681e2661220bbbcaff3883"
+      },
+      {
+        "path": "/assets/website/fonts/PressStart2P-Regular.woff2",
+        "source": "https://fonts.gstatic.com/s/pressstart2p/v16/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2",
+        "reference": "reference/assets/7a443241a2-e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 12512,
+        "sha256": "afec86997fdaf54af1f59358fa2c1e2a0f1d04146edad18e5cd141d0384a7548"
+      },
+      {
+        "path": "/assets/website/images/hero-bg.webp",
+        "source": "https://steach.org/landing/hero-bg.webp",
+        "reference": "reference/assets/411112bf25-hero-bg.webp",
+        "mimeType": "image/webp",
+        "bytes": 288458,
+        "sha256": "5fee5062b633965a7ae590b57f1a1e5cae626bfa31cb9ce022dbba12412c435f"
+      },
+      {
+        "path": "/assets/website/images/minecraft-bg.webp",
+        "source": "https://steach.org/landing/minecraft-bg.webp",
+        "reference": "reference/assets/66a187c38a-minecraft-bg.webp",
+        "mimeType": "image/webp",
+        "bytes": 157116,
+        "sha256": "ab13f4ef59f5c13d32c9110505902aa1b8d5e1cd29a3c83ee151eec8075a74af"
+      },
+      {
+        "path": "/assets/website/fonts/Estedad-Bold.woff2",
+        "source": "https://steach.org/font/Estedad-Bold.woff2",
+        "reference": "reference/assets/e5ded4ff57-Estedad-Bold.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 51260,
+        "sha256": "51681de94ab9b51696bb853004f7d6e6f9487d1652640f515caba5a82feb447c"
+      },
+      {
+        "path": "/assets/website/fonts/Estedad-ExtraBold.woff2",
+        "source": "https://steach.org/font/Estedad-ExtraBold.woff2",
+        "reference": "reference/assets/1e3054c287-Estedad-ExtraBold.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 51572,
+        "sha256": "40211372e6e9ddf3392c8d465a667c66e9f512451c1b9fe703574d8d1975ecba"
+      },
+      {
+        "path": "/assets/website/fonts/Estedad-Black.woff2",
+        "source": "https://steach.org/font/Estedad-Black.woff2",
+        "reference": "reference/assets/d8b0046459-Estedad-Black.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 50096,
+        "sha256": "357e78e89cb805f75f51e6f08179b33a7b634fff99cc47719fd1a721ea19315e"
+      },
+      {
+        "path": "/assets/website/fonts/Estedad-Regular.woff2",
+        "source": "https://steach.org/font/Estedad-Regular.woff2",
+        "reference": "reference/assets/59f96a6b03-Estedad-Regular.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 51444,
+        "sha256": "4cfe6e00e24c8853f545011a2e2c39604c0322b3193abe927127211e02fd2d03"
+      },
+      {
+        "path": "/assets/website/fonts/Estedad-SemiBold.woff2",
+        "source": "https://steach.org/font/Estedad-SemiBold.woff2",
+        "reference": "reference/assets/a6e2665cf1-Estedad-SemiBold.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 51492,
+        "sha256": "4705f26c49e1d402dc34b88f294b142b855fbc030fb776f92a45d7dfd4106fa4"
+      },
+      {
+        "path": "/assets/website/fonts/Estedad-Medium.woff2",
+        "source": "https://steach.org/font/Estedad-Medium.woff2",
+        "reference": "reference/assets/413ebc75c9-Estedad-Medium.woff2",
+        "mimeType": "font/woff2",
+        "bytes": 51500,
+        "sha256": "59ae9738177074c7a2cd924ed5589e8043c0cd5330b859f3b00d52b48af4ff69"
+      },
+      {
+        "path": "/assets/website/images/favicon.svg",
+        "source": "https://steach.org/favicon.svg",
+        "reference": "reference/assets/e9f7193ae0-favicon.svg",
+        "mimeType": "image/svg+xml",
+        "bytes": 9522,
+        "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66"
+      },
+      {
+        "path": "/assets/website/images/63522398-9824-l__9675.jpg",
+        "source": "https://static.cdn.asset.aparat.com/avt/63522398-9824-l__9675.jpg",
+        "reference": "reference/assets/2c6bf3eae5-63522398-9824-l__9675.jpg",
+        "mimeType": "image/jpeg",
+        "bytes": 310800,
+        "sha256": "ed7ec6532c7d01d19c648969a778e805decf69fd67b82f726acc490274c19d5c"
+      },
+      {
+        "path": "/assets/website/images/72341914-9100-l__7079.jpg",
+        "source": "https://static.cdn.asset.aparat.com/avt/72341914-9100-l__7079.jpg",
+        "reference": "reference/assets/88f8524047-72341914-9100-l__7079.jpg",
+        "mimeType": "image/jpeg",
+        "bytes": 593836,
+        "sha256": "5e0f886681a7168c17e22986c9229909868d9cf860110739185aff4c625a75f5"
+      },
+      {
+        "path": "/assets/website/images/71054426-9411-l__4668.jpg",
+        "source": "https://static.cdn.asset.aparat.com/avt/71054426-9411-l__4668.jpg",
+        "reference": "reference/assets/c8c26eb541-71054426-9411-l__4668.jpg",
+        "mimeType": "image/jpeg",
+        "bytes": 419039,
+        "sha256": "324c626d546452f23058ac0b2463a88e38ea86cce0621bb978e428e5247b4c42"
+      },
+      {
+        "path": "/assets/website/images/66678921-6350-l__2560.jpg",
+        "source": "https://static.cdn.asset.aparat.com/avt/66678921-6350-l__2560.jpg",
+        "reference": "reference/assets/43d490e3e5-66678921-6350-l__2560.jpg",
+        "mimeType": "image/jpeg",
+        "bytes": 372781,
+        "sha256": "0c25c5b72f45bfebabbef48e320cb91b4fa4707f4a774ec54166ce56854a4452"
+      },
+      {
+        "path": "/assets/website/images/inline-character.png",
+        "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAwCAYAAABwrHhvAAABLUlEQVR4AeyWPQrCQBCFJxb2wQuIJ7D2ABYewMpSsLIVES+gZ7C0s7cQ8QQRPIHkHDaRVwwMQ+Js/nADK3zszp++eaikR39+dUfAbDzMyuBqrP8O8NauG3Gf65z/DvBG+/mIysBz1um/A9dXGgHeZHFKCXDMJ3KAY8wAjotO/x3Qys/LIQHXvO7Tcfcc0BvUjbvjwGT3iCR6c1nDXdeLYv8dSJIky6M/PZIkrwe5os05778DrLStMzgQHPDfgc9tQxLr1yB7cbf6/XfA2qBuPTjQHQfWjwGB1fZAv0APcP1utO6AJcQUgKcbYL2RrmMG6LyOTQF6oOm4soDn/RJJqgqrLKDqB+q5ICA4EBwIDpgOxHGcgffzThLkAP+xyBruqEm4T5+mAD3QdBwEfAEAAP//bQgXJwAAAAZJREFUAwBvSb+BU447tQAAAABJRU5ErkJggg==",
+        "reference": "reference/assets/cf5c0a9704-inline-character.png",
+        "mimeType": "image/png",
+        "bytes": 376,
+        "sha256": "66ff98e8d896d7bab5e0040ec058a334827006ea6ba5f7ac4fb500ff40649687"
+      },
+      {
+        "path": "/assets/website/images/hero-mosaic.webp",
+        "source": "https://steach.org/landing/hero-mosaic.webp",
+        "reference": "reference/assets/6f43e5af9d-hero-mosaic.webp",
+        "mimeType": "image/webp",
+        "bytes": 2406,
+        "sha256": "808ff210a0eac2b7e6dd826219c360b17ca0c073cacb75165901e2d481778f20"
+      },
+      {
+        "path": "/assets/website/images/logo.jpg",
+        "source": "https://steach.org/logo.jpg",
+        "reference": "reference/assets/90c96b07ab-logo.jpg",
+        "mimeType": "image/jpeg",
+        "bytes": 24977,
+        "sha256": "c0e31a674e8d6f557a8e246abe57c6eaacb6b4deeea9f5bec61076fd9a3d83aa"
+      },
+      {
+        "path": "/assets/website/videos/v1-landing-what-is-playtalk.mp4",
+        "source": "https://steach.org/onboarding/videos/v1-landing-what-is-playtalk.mp4",
+        "reference": "reference/assets/6471d9452d-v1-landing-what-is-playtalk.mp4",
+        "mimeType": "video/mp4",
+        "bytes": 7808020,
+        "sha256": "549f47b9d81b0ce52ad5d94407c4bba980e9cd4ee10ae25f75e385730c1054c2"
+      }
+    ]
+  },
+  "instagram": {
+    "source": "https://www.instagram.com/playtalk.org_/",
+    "status": "blocked",
+    "downloadedAssets": 0,
+    "reason": "Instagram unreachable from this environment. Default/direct curl timed out; yt-dlp returned Network is unreachable. No login or private account access attempted."
+  }
+}
